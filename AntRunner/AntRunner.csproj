@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE188500-E0F3-4EFB-ABD9-D308C3B17100}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AntRunner</RootNamespace>
+    <AssemblyName>AntRunner</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>AntRunner_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.3\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX, Version=2.4.2.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.D3DCompiler">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.D3DCompiler.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct2D1, Version=2.4.2.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Direct2D1.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11, Version=2.4.2.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI, Version=2.4.2.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.MediaFoundation, Version=2.4.2.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.MediaFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Toolkit">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Toolkit.Game">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Toolkit.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Toolkit.Graphics">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Toolkit.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XAudio2, Version=2.4.2.0, Culture=neutral, PublicKeyToken=627a3d6d1956f55a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.XAudio2.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XInput, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows8\SharpDX.XInput.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cameras\Camera.cs" />
+    <Compile Include="Cameras\CameraManager.cs" />
+    <Compile Include="Entity\Ant.cs" />
+    <Compile Include="Entity\AssaultRifle.cs" />
+    <Compile Include="Entity\BlackHole.cs" />
+    <Compile Include="Entity\BlueAnt.cs" />
+    <Compile Include="Entity\Box.cs" />
+    <Compile Include="Entity\Bullet.cs" />
+    <Compile Include="Entity\Cake.cs" />
+    <Compile Include="Entity\Character.cs" />
+    <Compile Include="Entity\Chest.cs" />
+    <Compile Include="Entity\Diamond.cs" />
+    <Compile Include="Entity\DirtBlock.cs" />
+    <Compile Include="Entity\DoorBlock.cs" />
+    <Compile Include="Entity\Entity.cs" />
+    <Compile Include="Entity\Gold.cs" />
+    <Compile Include="Entity\GreenAnt.cs" />
+    <Compile Include="Entity\Handgun.cs" />
+    <Compile Include="Entity\IDamageable.cs" />
+    <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\Items\Ammo.cs" />
+    <Compile Include="Entity\Items\HealthPotion.cs" />
+    <Compile Include="Entity\Items\Item.cs" />
+    <Compile Include="Entity\IToggable.cs" />
+    <Compile Include="Entity\NewBox.cs" />
+    <Compile Include="Entity\NormalAnt.cs" />
+    <Compile Include="Entity\Player.cs" />
+    <Compile Include="Entity\QueenAnt.cs" />
+    <Compile Include="Entity\RedAnt.cs" />
+    <Compile Include="Entity\Resource.cs" />
+    <Compile Include="Entity\Switch.cs" />
+    <Compile Include="Entity\Water.cs" />
+    <Compile Include="Entity\Weapon.cs" />
+    <Compile Include="Entity\YellowAnt.cs" />
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InputHandler.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="MainGame.cs" />
+    <Compile Include="Menu\Clickwheel.cs" />
+    <Compile Include="Menu\MenuManager.cs" />
+    <Compile Include="NetworkLayer.cs" />
+    <Compile Include="Particles\ParticleEmitter.cs" />
+    <Compile Include="Particles\SpriteSheetEmitter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State.cs" />
+    <Compile Include="States\GameState.cs" />
+    <Compile Include="States\HelpState.cs" />
+    <Compile Include="States\MenuState.cs" />
+    <Compile Include="States\ScoreState.cs" />
+    <Compile Include="States\SettingsState.cs" />
+    <Compile Include="Task.cs" />
+    <Compile Include="Tower\TowerUnit.cs" />
+    <Compile Include="Utility\AABB.cs" />
+    <Compile Include="Utility\AStarPath.cs" />
+    <Compile Include="Utility\AStarPathOpt.cs" />
+    <Compile Include="Utility\BTTask.cs" />
+    <Compile Include="Utility\ColourTexture.cs" />
+    <Compile Include="Utility\DangerMap.cs" />
+    <Compile Include="Utility\DebugDraw.cs" />
+    <Compile Include="Utility\DFSPath.cs" />
+    <Compile Include="Utility\DStarLitePath.cs" />
+    <Compile Include="Utility\DStarLitePathOpt.cs" />
+    <Compile Include="Utility\EntityList.cs" />
+    <Compile Include="Utility\Global.cs" />
+    <Compile Include="Utility\JPSAStarPath.cs" />
+    <Compile Include="Utility\LPAStarPath.cs" />
+    <Compile Include="Utility\MathHelper.cs" />
+    <Compile Include="Utility\MessageBox.cs" />
+    <Compile Include="Utility\Narrator.cs" />
+    <Compile Include="Utility\NotificationText.cs" />
+    <Compile Include="Utility\Pathfinding.cs" />
+    <Compile Include="Utility\RigidBody.cs" />
+    <Compile Include="Utility\ShadowText.cs" />
+    <Compile Include="Utility\SteeringManager.cs" />
+    <Compile Include="Utility\TestStats.cs" />
+    <Compile Include="Utility\ThetaStarPath.cs" />
+    <Compile Include="Utility\TMXLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="..\AntRunnerContent\selection_arrow.png">
+      <Link>Content\selection_arrow.png</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\GameFont.xnb">
+      <Link>Content\GameFont.xnb</Link>
+    </Content>
+    <Content Include="Assets\Clickwheel\MainClickwheel.xml" />
+    <Content Include="Assets\Levels\main_level_five.tmx" />
+    <Content Include="Assets\Levels\main_level_four.tmx" />
+    <Content Include="Assets\Levels\main_level_three.tmx" />
+    <Content Include="Assets\Levels\main_level_two.tmx" />
+    <Content Include="Assets\Levels\terrain_tiles.tsx" />
+    <Content Include="Assets\Tasks\MoveCake.xml" />
+    <Content Include="Assets\welcome_speech.txt" />
+    <Content Include="mario_sprite.png" />
+    <Content Include="terrain_tiles.png" />
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\mario_sprite.xnb">
+      <Link>Content\mario_sprite.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\terrain_tiles.xnb">
+      <Link>Content\terrain_tiles.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\arrow_select.xnb">
+      <Link>Content\arrow_select.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\shotgun_fire.xnb">
+      <Link>Content\shotgun_fire.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\tower_head.xnb">
+      <Link>Content\tower_head.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\bullet.xnb">
+      <Link>Content\bullet.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\bullet_single.xnb">
+      <Link>Content\bullet_single.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\Blip_Select.xnb">
+      <Link>Content\Blip_Select.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\ant_spritesheet.xnb">
+      <Link>Content\ant_spritesheet.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\shoot_sound.xnb">
+      <Link>Content\shoot_sound.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\ammobar_small.xnb">
+      <Link>Content\ammobar_small.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\emptybar_small.xnb">
+      <Link>Content\emptybar_small.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\healthbar_full_small.xnb">
+      <Link>Content\healthbar_full_small.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\astar_font.xnb">
+      <Link>Content\astar_font.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\blank_grid.xnb">
+      <Link>Content\blank_grid.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\bezier_dot.xnb">
+      <Link>Content\bezier_dot.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\arrow_path.xnb">
+      <Link>Content\arrow_path.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\AntRunnerLogo.xnb">
+      <Link>Content\AntRunnerLogo.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\ant_spritesheet_blue.xnb">
+      <Link>Content\ant_spritesheet_blue.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\ant_spritesheet_green.xnb">
+      <Link>Content\ant_spritesheet_green.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\ant_spritesheet_red.xnb">
+      <Link>Content\ant_spritesheet_red.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\ant_menu_icon.xnb">
+      <Link>Content\ant_menu_icon.xnb</Link>
+    </Content>
+    <None Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\blood_splat.xnb">
+      <Link>Content\blood_splat.xnb</Link>
+    </None>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\close_grid.xnb">
+      <Link>Content\close_grid.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\open_grid.xnb">
+      <Link>Content\open_grid.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\path_dot.xnb">
+      <Link>Content\path_dot.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\speech_cake.xnb">
+      <Link>Content\speech_cake.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\speech_kill.xnb">
+      <Link>Content\speech_kill.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\narrator.xnb">
+      <Link>Content\narrator.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\main_menu.xnb">
+      <Link>Content\main_menu.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\speech_wandering.xnb">
+      <Link>Content\speech_wandering.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\collect_items.xnb">
+      <Link>Content\collect_items.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\white_bar.xnb">
+      <Link>Content\white_bar.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\debug_dot.xnb">
+      <Link>Content\debug_dot.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\pulse.xnb">
+      <Link>Content\pulse.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\hit.xnb">
+      <Link>Content\hit.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\pickup.xnb">
+      <Link>Content\pickup.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\pickup2.xnb">
+      <Link>Content\pickup2.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\cake_slice.xnb">
+      <Link>Content\cake_slice.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\hammer_icon.xnb">
+      <Link>Content\hammer_icon.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\spade.xnb">
+      <Link>Content\spade.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\blue_ant_icon.xnb">
+      <Link>Content\blue_ant_icon.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\green_ant_icon.xnb">
+      <Link>Content\green_ant_icon.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\red_ant_icon.xnb">
+      <Link>Content\red_ant_icon.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\selection_arrow.xnb">
+      <Link>Content\selection_arrow.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\medium_game_font.xnb">
+      <Link>Content\medium_game_font.xnb</Link>
+    </Content>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\selection_cursor.xnb">
+      <Link>Content\selection_cursor.xnb</Link>
+    </Content>
+    <None Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\speech_exclamationmark.xnb">
+      <Link>Content\speech_exclamationmark.xnb</Link>
+    </None>
+    <Content Include="..\DummyLibrary\bin\Windows Phone\Debug\AntRunnerContent\yellow_ant_icon.xnb">
+      <Link>Content\yellow_ant_icon.xnb</Link>
+    </Content>
+    <None Include="AntRunner_TemporaryKey.pfx" />
+    <Content Include="Assets\Levels\testing.tmx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\Levels\path_thetatest.tmx" />
+    <Content Include="Assets\Levels\dstar_testing.tmx" />
+    <Content Include="Assets\Levels\path_100x100.tmx" />
+    <Content Include="Assets\Levels\path_jps.tmx" />
+    <Content Include="Assets\Levels\path_zigzag.tmx" />
+    <Content Include="Assets\Levels\path_jumppointtest2.tmx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PriorityQueueLib\PriorityQueueLib.csproj">
+      <Project>{b21c59e2-6ce3-45ed-9138-e4ad21affa3c}</Project>
+      <Name>PriorityQueueLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\x86\Debug\AppX\Content\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Clickwheel>
+  <Items>
+    
+  </Items>
+  <Children>
+    <Clickwheel>
+      <Items>
+        <Item Message="Red Ant">
+          
+        </Item>
+        <Item Message="Green Ant">
+        
+        </Item>
+        <Item Message="Yellow Ant">
+          
+        </Item>
+        <Item Message="Blue Ant">
+          
+        </Item>
+      </Items>
+      <Children>
+        
+      </Children>
+    </Clickwheel>
+  </Children>
+  
+</Clickwheel>
